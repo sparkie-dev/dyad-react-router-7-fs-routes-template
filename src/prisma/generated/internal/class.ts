@@ -22,7 +22,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/Users/jonaskennedy/code/sparkie-app-studio/scaffold/src/prisma/generated",
+      "value": "/Users/jonaskennedy/code/dyad-react-router-7-fs-routes-template/src/prisma/generated",
       "fromEnvVar": null
     },
     "config": {
@@ -36,7 +36,7 @@ const config: runtime.GetPrismaClientConfig = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/jonaskennedy/code/sparkie-app-studio/scaffold/src/prisma/schema.prisma",
+    "sourceFilePath": "/Users/jonaskennedy/code/dyad-react-router-7-fs-routes-template/src/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "..",

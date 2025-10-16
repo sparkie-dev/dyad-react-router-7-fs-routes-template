@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Prevent accidental TypeScript emits inside source tree
+src/**/*.js
+src/**/*.js.map

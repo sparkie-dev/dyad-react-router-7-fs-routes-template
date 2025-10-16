@@ -73,9 +73,9 @@
     "zod": "^4.0.0"
   },
   "devDependencies": {
+    "@dyad-sh/react-vite-component-tagger": "0.8.0",
     "@eslint/js": "9.37.0",
     "@react-router/dev": "7.9.4",
-    "@sparkie-dev/react-vite-component-tagger": "file:../packed-packages/sparkie-dev-react-vite-component-tagger-v0.8.0.tgz",
     "@tailwindcss/typography": "0.5.19",
     "@types/express": "5.0.3",
     "@types/node": "22.18.10",

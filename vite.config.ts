@@ -1,8 +1,11 @@
 import { defineConfig } from "vite";
-import sparkieComponentTagger from "@sparkie-dev/react-vite-component-tagger";
+import dyadComponentTagger from "@dyad-sh/react-vite-component-tagger";
 import path from "path";
+import { fileURLToPath, URL } from "url";
 import { reactRouter } from "@react-router/dev/vite";
 import react from "@vitejs/plugin-react-swc";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(() => ({
   server: {
@@ -11,7 +14,10 @@ export default defineConfig(() => ({
   },
   build: {
     rollupOptions: {
-      onwarn(warning, warn) {
+      onwarn(
+        warning: { message: string; [key: string]: any },
+        warn: (warning: any) => void
+      ) {
         if (
           warning.message.includes("@react-router/dev/routes") ||
           warning.message.includes('Module "fs" has been externalized') ||
@@ -23,7 +29,7 @@ export default defineConfig(() => ({
       },
     },
   },
-  plugins: [react(), sparkieComponentTagger(), reactRouter()],
+  plugins: [react(), dyadComponentTagger(), reactRouter()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
