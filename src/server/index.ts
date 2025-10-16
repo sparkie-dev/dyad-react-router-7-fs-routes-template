@@ -3,5 +3,5 @@
 
 export async function getGreeting() {
   // In a real app, you might fetch this from a database.
-  return "Welcome to your new Sparkie App!";
+  return "Welcome to your new dyad App!";
 }

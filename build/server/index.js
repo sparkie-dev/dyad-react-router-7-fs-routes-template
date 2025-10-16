@@ -25,15 +25,15 @@ const route0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   Component: Component$2
 }, Symbol.toStringTag, { value: "Module" }));
-const MadeWithSparkie = () => {
+const MadeWithdyad = () => {
   return /* @__PURE__ */ jsx("div", { className: "p-4 text-center", children: /* @__PURE__ */ jsx(
     "a",
     {
-      href: "https://www.sparkie.dev/",
+      href: "https://www.dyad.dev/",
       target: "_blank",
       rel: "noopener noreferrer",
       className: "text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200",
-      children: "Made with Sparkie App Studio"
+      children: "Made with dyad App Studio"
     }
   ) });
 };
@@ -52,7 +52,7 @@ function Component$1() {
         className: "text-xl text-gray-600",
         children: "Start building your amazing project here!"
       })]
-    }), /* @__PURE__ */ jsx(MadeWithSparkie, {})]
+    }), /* @__PURE__ */ jsx(MadeWithdyad, {})]
   });
 }
 const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({

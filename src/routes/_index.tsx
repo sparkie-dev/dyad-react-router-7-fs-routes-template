@@ -1,4 +1,4 @@
-import { MadeWithSparkie } from "@/components/made-with-sparkie";
+import { MadeWithDyad } from "@/components/made-with-dyad";
 
 export async function loader() {
   return {"hello": "world"};
@@ -13,7 +13,7 @@ export function Component() {
           Start building your amazing project here!
         </p>
       </div>
-      <MadeWithSparkie />
+      <MadeWithDyad />
     </div>
   );
 };
