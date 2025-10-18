@@ -2,10 +2,11 @@
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
-  "packageManager": "yarn@4.10.3",
+  "packageManager": "pnpm@9.12.2",
   "type": "module",
   "scripts": {
-    "dev": "corepack yarn && vite",
+    "preinstall": "npx -y only-allow pnpm",
+    "dev": "vite",
     "build": "react-router build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
@@ -91,6 +92,11 @@
     "prettier": "3.6.2",
     "tailwindcss": "4.1.14",
     "typescript-eslint": "8.46.1",
-    "vite": "7.1.9"
+    "vite": "7.1.9",
+    "only-allow": "^1.2.1"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
   }
 }

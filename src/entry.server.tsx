@@ -11,7 +11,7 @@ export default function handleRequest(
   routerContext: EntryContext,
 ) {
   return new Promise((resolve, reject) => {
-    const { pipe, abort } = renderToPipeableStream(
+  const { pipe, abort: _abort } = renderToPipeableStream(
       <ServerRouter context={routerContext} url={request.url} />,
       {
         onShellReady() {

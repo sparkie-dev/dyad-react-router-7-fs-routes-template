@@ -50,34 +50,36 @@ src/
 ### Prerequisites
 
 - Node.js 18+ (recommended: use the version specified in `.nvmrc` if present)
-- Yarn 4.x (via Corepack)
+- pnpm 9+ (managed via Corepack)
 
 ### Installation
 
+<!-- markdownlint-disable MD029 -->
 1. **Install dependencies:**
 
-   ```bash
-   corepack enable
-   yarn install
-   ```
+  ```bash
+  corepack enable pnpm
+  pnpm install
+  ```
 
 2. **Set up the database:**
 
-   ```bash
-   # Generate Prisma client
-   npx prisma generate
+  ```bash
+  # Generate Prisma client
+  npx prisma generate
 
-   # Run migrations (if applicable)
-   npx prisma migrate dev
-   ```
+  # Run migrations (if applicable)
+  npx prisma migrate dev
+  ```
 
 3. **Start the development server:**
+<!-- markdownlint-enable MD029 -->
 
-   ```bash
-   yarn dev
-   ```
+  ```bash
+  pnpm dev
+  ```
 
-   Your app will be available at `http://localhost:5173`
+  Your app will be available at `http://localhost:5173`
 
 ## 📖 Development Guide
 
@@ -221,7 +223,7 @@ import { Button } from "@/components/ui/button";
 ### Build the Application
 
 ```bash
-yarn build
+pnpm build
 ```
 
 This creates optimized production files in `build/` directory.
@@ -229,7 +231,7 @@ This creates optimized production files in `build/` directory.
 ### Preview Production Build
 
 ```bash
-yarn preview
+pnpm preview
 ```
 
 ## 📦 Tech Stack

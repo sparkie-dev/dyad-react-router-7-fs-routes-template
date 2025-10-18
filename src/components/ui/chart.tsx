@@ -12,8 +12,7 @@ import {
   ResponsiveContainer,
   Tooltip as RechartsTooltip,
   Legend as RechartsLegend,
-  type TooltipProps as RechartsTooltipProps,
-  type LegendProps as RechartsLegendProps,
+  type LegendPayload,
 } from "recharts"
 
 import { cn } from "@/utils/cn"
@@ -55,9 +54,17 @@ ChartContainer.displayName = "Chart"
 // #region Chart Tooltip
 const ChartTooltip = RechartsTooltip;
 
+interface ChartPointPayload {
+  readonly dataKey?: string | number;
+  readonly name?: string | number;
+  readonly color?: string;
+  readonly value?: number | string;
+  readonly payload?: unknown;
+}
+
 type ChartTooltipContentProps = React.ComponentProps<'div'> & {
   active?: boolean
-  payload?: any[]
+  payload?: ChartPointPayload[]
   label?: string
 };
 
@@ -82,9 +89,10 @@ const ChartTooltipContent = React.forwardRef<
       <div className="font-medium">{label}</div>
       <div className="grid gap-1.5">
         {payload.map((item, i) => {
-          const key = `${item.dataKey}`
+          const key = `${String(item.dataKey)}`
           const itemConfig = config[key]
-          const { color, name } = item
+          const color = item.color as string | undefined
+          const name = item.name as string | undefined
 
           return (
             <div
@@ -116,7 +124,7 @@ ChartTooltipContent.displayName = "ChartTooltipContent"
 // #region Chart Legend
 const ChartLegend = RechartsLegend;
 
-type ChartLegendContentProps = React.ComponentProps<'div'> & { payload?: any[] };
+type ChartLegendContentProps = React.ComponentProps<'div'> & { payload?: LegendPayload[] };
 
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
@@ -134,12 +142,12 @@ const ChartLegendContent = React.forwardRef<
       className={cn("flex items-center justify-center gap-4", className)}
     >
       {payload.map((item) => {
-        const key = `${item.dataKey}`
+        const key = `${String(item.dataKey)}`
         const itemConfig = config[key]
 
         return (
           <div
-            key={item.value}
+            key={String(item.value)}
             className={cn(
               "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground"
             )}
@@ -149,7 +157,7 @@ const ChartLegendContent = React.forwardRef<
             ) : (
               <div
                 className="h-2 w-2 shrink-0 rounded-[2px]"
-                style={{ backgroundColor: item.color }}
+                style={{ backgroundColor: item.color as string }}
               />
             )}
             {itemConfig?.label}
