@@ -17,7 +17,6 @@ Before taking any action, you **must** complete the following steps at the begin
 - **Framework**: React 19+ with TypeScript.
 - **Routing**: React Router v7.
 - **Styling**: Tailwind CSS with shadcn/ui components.
-- **Data Layer**: Prisma ORM.
 - **Icons**: `lucide-react`.
 
 ## 1. Routing (React Router v7)
@@ -119,17 +118,11 @@ This project uses **React Router v7** from `remix-run/react-router` with a moder
 
 ## 2. Data Flow
 
-- **Server Logic**: All database interactions **must** be defined in functions within the `src/server` directory (e.g., `src/server/brands.server.ts`). These functions will contain all Prisma queries.
-- **Loaders & Actions**: `loader` and `action` functions in the `src/routes` files should **import and call** the server functions from the `src/server` directory. They act as a bridge between the UI and the data layer.
+- **Loaders & Actions**: `loader` and `action` functions in the `src/routes` files should handle data fetching and mutations as needed for your application logic.
 - **Accessing Data in Components**: Use the `useLoaderData()` hook in your `Component` to access the data returned from its `loader`.
 - **Submitting Data**:
-  - For full-page navigations (e.g., creating a new item), use the `<Form>` component from `react-router`.
-  - For in-page data mutations that don't require navigation (e.g., updating an item on a detail page), use the `useFetcher()` hook.
-- **Prisma Types**: When you need to use a type for a Prisma model (e.g., `Brand`, `User`), **always** import it from the generated Prisma client (`@prisma/client`). Do not define these types manually.
-
-  ```typescript
-  import type { Brand } from "@prisma/client";
-  ```
+- For full-page navigations (e.g., creating a new item), use the `<Form>` component from `react-router`.
+- For in-page data mutations that don't require navigation (e.g., updating an item on a detail page), use the `useFetcher()` hook.
 
 ## 3. Component & UI Conventions
 
@@ -142,13 +135,6 @@ This project uses **React Router v7** from `remix-run/react-router` with a moder
 ## 4. Form Handling
 
 - **Recommended Library**: Use **React Hook Form** for all form state management and validation.
-- **Type Safety**: Use Prisma generated types for form schemas. Import types from `@prisma/client` or use Prisma's generated input types from `src/prisma/generated/` for validation and type safety.
-
-  ```typescript
-  import type { Brand } from "@prisma/client";
-  // Or for input types:
-  import type { BrandCreateInput } from "src/prisma/generated/commonInputTypes";
-  ```
 
 ## 5. Server-Side Rendering (SSR)
 
