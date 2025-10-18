@@ -141,7 +141,14 @@ This project uses **React Router v7** from `remix-run/react-router` with a moder
 
 ## 4. Form Handling
 
-- **Recommended Library**: Use **React Hook Form** in combination with **Zod** for all form state management and validation.
+- **Recommended Library**: Use **React Hook Form** for all form state management and validation.
+- **Type Safety**: Use Prisma generated types for form schemas. Import types from `@prisma/client` or use Prisma's generated input types from `src/prisma/generated/` for validation and type safety.
+
+  ```typescript
+  import type { Brand } from "@prisma/client";
+  // Or for input types:
+  import type { BrandCreateInput } from "src/prisma/generated/commonInputTypes";
+  ```
 
 ## 5. Server-Side Rendering (SSR)
 
@@ -164,10 +171,6 @@ This project uses SSR with **React Router v7's Framework Mode**, which provides 
       // ... options
     );
     // ... logic to return response
-  }
-  ```
-
-- **Client (`src/entry.client.tsx`)**: The client entry point **must** use `hydrateRoot` from `react-dom/client` and render the `<HydratedRouter>` component from `react-router/dom` (note: with **forward slash**, not hyphen).
 
   ```tsx
   // src/entry.client.tsx
